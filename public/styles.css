@@ -1,6 +1,18 @@
-div {
-  padding: 40px;
-  min-width: 200px;
-  min-height: 200px;
-  border: 1px solid black;
+body {
+  margin: 0;
+}
+
+.container {
+  background-color: aqua;
+  height: 100vh;
+}
+
+.box {
+  background-color: brown;
+  height: 200px;
+  width: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: relative;
 }
