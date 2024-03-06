@@ -7,7 +7,7 @@ console.log(uniqueElements, "UniqueElements");
 // remove using set --> Time complexity O(n)
 console.log([...new Set(arr)], "Using Set");
 
-// remove using brute force
+// remove duplicate using brute force
 let uniqueArray = [];
 for (let i = 0; i < arr.length; i++) {
   let isPresent = false;
@@ -22,3 +22,11 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 console.log(uniqueArray, "Unique Array using brute force");
+
+const duplicateArr = [5, 2, 2, 3, 5, 6, 3, 7];
+
+// Unique Elements occured only once i.e 6 and 7
+const unique = duplicateArr.filter(
+  (item, index) => duplicateArr.indexOf(item) === duplicateArr.lastIndexOf(item)
+);
+console.log(unique, "Occured once");

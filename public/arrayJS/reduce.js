@@ -23,8 +23,18 @@ const stringCount = [...str].reduce((acc, char) => {
 }, {});
 
 let strCount = "";
-const entries = Object.entries(stringCount).forEach(
+Object.entries(stringCount).forEach(
   ([key, value]) => (strCount += key + value)
 );
 
 console.log(strCount, "StringCount");
+
+// Find max value using reduce
+const numbers = [1, 3, 5, 2, 8];
+
+const maxValue = numbers.reduce((acc, curr) => {
+  acc = curr > acc ? curr : acc;
+  return acc;
+}, numbers[0]);
+
+console.log(maxValue, "MaxValue");
