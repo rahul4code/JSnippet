@@ -34,3 +34,4 @@ function getFlatArray(arr) {
 }
 
 console.log(getFlatArray(arr));
+// flat and remove duplicate using recusrion
