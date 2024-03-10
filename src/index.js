@@ -5,6 +5,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Counter } from "./useState";
+import { ListRepo } from "./useEffect";
+import Modal from "./useLayoutEffect/Modal";
+import Card from "./useCallback/Card";
+import ThemeNumber from "./useMemo/ThemeNumber";
 
 const appRouter = createBrowserRouter([
   {
@@ -14,6 +18,22 @@ const appRouter = createBrowserRouter([
       {
         path: "/useState",
         element: <Counter />,
+      },
+      {
+        path: "/useEffect",
+        element: <ListRepo />,
+      },
+      {
+        path: "/useLayoutEffect",
+        element: <Modal />,
+      },
+      {
+        path: "/useCallback",
+        element: <Card />,
+      },
+      {
+        path: "/useMemo",
+        element: <ThemeNumber />,
       },
     ],
   },
