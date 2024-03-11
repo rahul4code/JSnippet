@@ -9,6 +9,7 @@ import { ListRepo } from "./useEffect";
 import Modal from "./useLayoutEffect/Modal";
 import Card from "./useCallback/Card";
 import ThemeNumber from "./useMemo/ThemeNumber";
+import Container from "./useContext/Container";
 
 const appRouter = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/useMemo",
         element: <ThemeNumber />,
+      },
+      {
+        path: "/useContext",
+        element: <Container />,
       },
     ],
   },

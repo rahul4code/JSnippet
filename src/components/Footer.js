@@ -9,7 +9,7 @@ const FooterContainer = styled.footer`
   justify-content: center;
   display: flex;
   width: 100%;
-  position: absolute;
+  position: relative;
 `;
 
 const Footer = () => {
