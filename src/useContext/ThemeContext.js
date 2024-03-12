@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const GlobalTheme = createContext({
-  background: "dark",
-});
+const GlobalTheme = createContext();
+
+export default GlobalTheme;
