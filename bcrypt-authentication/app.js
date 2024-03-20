@@ -14,5 +14,5 @@ app.use("/user", userRoutes);
 app.use("/auth", authRoutes);
 
 app.listen(PORT, () => {
-  console.log("App is running");
+  console.log("Bcrypt App is running on port:" + PORT);
 });
