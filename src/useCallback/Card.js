@@ -9,6 +9,14 @@ const Card = () => {
     return numberList;
   }, [numberList]);
 
+  const handleAddNumber = () => {
+    const newNumber = parseInt(number, 10);
+    if (!isNaN(newNumber)) {
+      setNumberList([...numberList, newNumber]);
+      setNumber(0);
+    }
+  };
+
   return (
     <div>
       <input
@@ -17,9 +25,7 @@ const Card = () => {
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <button onClick={(e) => setNumberList([...numberList, number])}>
-        Add
-      </button>
+      <button onClick={handleAddNumber}>Add</button>
       <p>Get the updated List</p>
       <List getItems={getItems} />
     </div>

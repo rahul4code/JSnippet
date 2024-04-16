@@ -10,6 +10,7 @@ import Modal from "./useLayoutEffect/Modal";
 import Card from "./useCallback/Card";
 import ThemeNumber from "./useMemo/ThemeNumber";
 import Container from "./useContext/Container";
+import ThunkContainer from "./redux-toolkit/ThunkContainer";
 
 const appRouter = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/useContext",
         element: <Container />,
+      },
+      {
+        path: "/redux-thunk",
+        element: <ThunkContainer />,
       },
     ],
   },

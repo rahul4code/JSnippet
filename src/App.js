@@ -15,7 +15,7 @@ function App() {
       <Container>
         <Outlet />
       </Container>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

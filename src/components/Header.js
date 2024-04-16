@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.div`
   min-height: 100px;
-  background: papayawhip;
+  background: #2c3e50;
+  color: white;
   align-items: center;
   justify-content: center;
   display: flex;

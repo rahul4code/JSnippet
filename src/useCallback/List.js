@@ -11,7 +11,7 @@ const List = ({ getItems }) => {
   return (
     <ul>
       {list.map((i) => (
-        <li key={i}>{i}</li>
+        <li key={i + Math.random()}>{i}</li>
       ))}
     </ul>
   );
