@@ -16,5 +16,7 @@ console.log(linkedList.print(), "Append Insertion");
 insert.insertAtIndex(50, 2);
 console.log(linkedList.print(), "Inserted 50 at given index 2");
 // Deletion
-remove.removeItem(2);
+remove.removeItem(0);
+console.log(linkedList.print(), "removed node from index 0");
+remove.removeItem(1);
 console.log(linkedList.print(), "removed node from index 2");
