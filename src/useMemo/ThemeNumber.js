@@ -1,38 +1,46 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 const ThemeNumber = () => {
+  const [numList, setNumList] = useState([1, 2, 3, 4, 5]);
   const [number, setNumber] = useState(0);
-  const [dark, setDark] = useState(false);
 
-  //   const doubleNumber = slowFunction(number); // Render Time is taking time even I am just clicking on Change Theme
-  const doubleNumber = useMemo(() => slowFunction(number), [number]); // Now this will only get call if the number gets change and so
-  //   the console or reder time of this compoenent will be faster
-
-  // const theme = dark
-  //   ? { background: "black", color: "white" }
-  //   : { background: "white", color: "black" };
-
-  //another use case of useMemo
-  const theme = useMemo(() => {
-    return dark
-      ? { background: "black", color: "white" }
-      : { background: "white", color: "black" };
-  }, [dark]);
-
-  function slowFunction(number) {
+  // Earlier this function get called on every render example on change of number in input box
+  function getSum() {
+    // This is a heavy operation
     for (let i = 0; i < 1000000000; i++) {}
-    return number * 2;
+    console.log("I am called");
+    return numList.reduce((acc, curr) => (acc += curr), 0);
   }
 
-  console.log("Render Time");
+  // After memoizing this now this will only get called if the list changes
+  const sum = useMemo(() => getSum(), [numList]);
+
+  const reCalculateSum = () => {
+    if (numList.includes(number)) {
+      alert("Already Exist");
+    } else {
+      setNumList([...numList, number]);
+    }
+  };
+
   return (
-    <div>
-      <input value={number} onChange={(e) => setNumber(e.target.value)} />
-      <button onClick={() => setDark((prevTheme) => !prevTheme)}>
-        Change Theme
-      </button>
-      <div style={theme}>{doubleNumber}</div>
-    </div>
+    <>
+      <ul>
+        {numList.map((i) => (
+          <li key={i}>{i}</li>
+        ))}
+      </ul>
+      <div style={{ paddingLeft: "2%" }}>
+        <input
+          placeholder="Enter unique number"
+          type="number"
+          onChange={(e) => setNumber(Number(e.target.value))}
+        />
+        <button onClick={() => reCalculateSum()}>Add Number</button>
+        {/* Memoized value used instead of directly calling the getSum() function */}
+        <p>Sum of all the numbers are: {sum}</p>
+      </div>
+    </>
   );
 };
 
