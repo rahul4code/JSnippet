@@ -5,8 +5,9 @@ const List = ({ getItems }) => {
 
   useEffect(() => {
     setList(getItems());
-    console.log("getItems Called");
   }, [getItems]);
+
+  console.log("Child renders");
 
   return (
     <ul>

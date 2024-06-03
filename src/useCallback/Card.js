@@ -5,9 +5,14 @@ const Card = () => {
   const [number, setNumber] = useState(0);
   const [numberList, setNumberList] = useState([1, 2, 3]);
 
-  const getItems = useCallback(() => {
+  // Now getItems function get memoized and not getting called/register on each render
+  const memGetItems = useCallback(() => getItems(), [numberList]);
+
+  // Earlier this was getting called if this(Parent) component gets re-render
+  function getItems() {
+    console.log("getItems is called");
     return numberList;
-  }, [numberList]);
+  }
 
   const handleAddNumber = () => {
     const newNumber = parseInt(number, 10);
@@ -27,7 +32,7 @@ const Card = () => {
       />
       <button onClick={handleAddNumber}>Add</button>
       <p>Get the updated List</p>
-      <List getItems={getItems} />
+      <List getItems={memGetItems} />
     </div>
   );
 };
