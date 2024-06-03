@@ -1,0 +1,13 @@
+.outer {
+  height: 500px;
+  width: 200px;
+  background-color: yellow;
+}
+
+.inner {
+  height: 200px;
+  width: 200px;
+  border: 10px solid gray;
+  background-color: green;
+  box-sizing: border-box;
+}
