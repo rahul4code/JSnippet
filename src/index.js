@@ -11,6 +11,7 @@ import Card from "./useCallback/Card";
 import ThemeNumber from "./useMemo/ThemeNumber";
 import Container from "./useContext/Container";
 import ThunkContainer from "./redux-toolkit/ThunkContainer";
+import { Pagination } from "./pagination";
 
 const appRouter = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/redux-thunk",
         element: <ThunkContainer />,
+      },
+      {
+        path: "/pagination",
+        element: <Pagination />,
       },
     ],
   },
