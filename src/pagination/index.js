@@ -1,48 +1,58 @@
 import { useEffect, useState } from "react";
 
+const LENGTH = 3;
 export const Pagination = () => {
   const [userData, setUserData] = useState([]);
   const [originalData, setOriginalData] = useState([]);
-  const [perPage, setPerPage] = useState(3);
+  const [rowCount, setRowCount] = useState(LENGTH);
+  const [prevRowCount, setPrevRowCount] = useState(0);
 
   useEffect(() => {
     async function getUserData() {
       const data = await fetch("https://jsonplaceholder.typicode.com/users");
       const res = await data.json();
       setOriginalData(res);
-      const pageData = res.slice(0, 3);
+      const pageData = res.slice(0, LENGTH);
       setUserData((prev) => [...prev, ...pageData]);
-      console.log(res, "Response");
+      // console.log(res, "Response");
     }
-
     getUserData();
   }, []);
 
-  const handleClick = (type, count) => {
+  useEffect(() => {
+    const data = originalData.slice(prevRowCount, rowCount);
+    setUserData([...data]);
+  }, [rowCount]);
+
+  const handleClick = (type) => {
     switch (type) {
       case "prev":
-        // if (userData.length > 3) {
-        const page = originalData.slice(perPage - 3, perPage);
-        console.log(page, "PageData");
-        setUserData(page);
-        // }
+        if (rowCount > 0) {
+          setRowCount(prevRowCount);
+          setPrevRowCount((prev) => prev - LENGTH);
+        }
         break;
       case "next":
-        if (userData.length > 0) {
-          const page = originalData.slice(perPage + 3, perPage + 3 + 3);
-          console.log(page, perPage + 3, perPage + 3 + 3, "result");
-          setUserData(page);
+        if (originalData.length - rowCount > LENGTH) {
+          setRowCount((prev) => prev + LENGTH);
+          setPrevRowCount((prev) => prev + LENGTH);
+          console.log("ran if");
+        } else {
+          setRowCount((prev) => prev + originalData.length - rowCount);
+          setPrevRowCount((prev) => prev + LENGTH);
+          console.log("ran else");
         }
-        console.log("Next");
         break;
       default:
         console.log("Something broken");
     }
   };
 
+  console.log(prevRowCount, rowCount, "bahar");
+
   return (
     <>
-      <table>
+      <table border={1}>
         <thead>
           <tr>
             <th>Name</th>
@@ -61,8 +71,8 @@ export const Pagination = () => {
         </tbody>
       </table>
       <div>
-        <button onClick={() => handleClick("prev", 3)}>Prev</button>
-        <button onClick={() => handleClick("next", 3)}>Next</button>
+        <button onClick={() => handleClick("prev")}>Prev</button>
+        <button onClick={() => handleClick("next")}>Next</button>
       </div>
     </>
   );
