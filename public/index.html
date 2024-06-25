@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,51 +15,5 @@
 
     <script src="./script.js" defer></script>
 </body>
-
-</html> -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>HTTP Post</title>
-</head>
-
-<body>
-    <div id="root"></div>
-    <h1>Simple Calculator.</h1>
-    <form method="post" id="calForm">
-        <input type="number" name="num1" placeholder="First Number" id="input1" />
-        <input type="number" name="num2" placeholder="Second Number" id="input2" />
-        <button type="submit" name="submit">calculator</button>
-    </form>
-</body>
-
-<script>
-
-    document.getElementById('calForm').addEventListener('submit', (event) => {
-        event.preventDefault();
-        const res = postValues();
-        const formData = new FormData();
-        formData.append('sum', res)
-        fetch("/calculation", {
-            method: 'POST',
-            body: formData
-        })
-            .then(() => {
-                response => console.log(response)
-            })
-
-    })
-
-    function postValues() {
-        let var1 = document.getElementById('input1').value
-        let var2 = document.getElementById('input2').value
-        let result = Number(var1) + Number(var2);
-        return result
-    }
-
-</script>
 
 </html>
