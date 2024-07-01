@@ -17,7 +17,12 @@ const posts = [
 ];
 
 app.get("/posts", authenticateToken, (req, res) => {
+  console.log(req.user, "req.user");
   res.json(posts.filter((post) => post.user === req.user));
+});
+
+app.get("/check", (req, res) => {
+  res.json({ msg: "success" });
 });
 
 app.post("/login", (req, res) => {
@@ -30,13 +35,12 @@ app.post("/login", (req, res) => {
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
-  if (token == null) return res.status(403).send("Token is missing");
+  if (token == null) return res.status(401).send("Token is missing");
   jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
-    console.log(payload, "Test");
     if (err) {
-      return res.status(403).send("Token is invalid");
+      return res.status(403).send("Token is invalid or expired");
     }
-    // req.user = payload.user;
+    req.user = payload;
     next();
   });
 }

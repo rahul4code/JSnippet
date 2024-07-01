@@ -9,7 +9,6 @@ const writeStream = fs.createWriteStream("./streams/writeme.txt", {
 readStream.on("data", (chunk) => {
   writeStream.write(chunk + "\n");
   writeStream.write("This is Rahul Gupta!\n");
-  //   writeStream.end();
 });
 
 readStream.on("end", () => {
