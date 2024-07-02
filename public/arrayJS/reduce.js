@@ -38,3 +38,13 @@ const maxValue = numbers.reduce((acc, curr) => {
 }, numbers[0]);
 
 console.log(maxValue, "MaxValue");
+
+// Remove duplicates using reduce
+const uniqueEml = arr.reduce((acc, curr) => {
+  if (!acc.includes(curr)) {
+    acc.push(curr);
+  }
+  return acc;
+}, []);
+
+console.log(uniqueEml, "uni");
