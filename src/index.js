@@ -14,12 +14,17 @@ import ThunkContainer from "./redux-toolkit/ThunkContainer";
 import { Pagination } from "./pagination";
 import Registration from "./stepperForm/App";
 import Dashboard from "./timer/Dashboard";
+import { Home } from "./components/Home";
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/useState",
         element: <Counter />,
