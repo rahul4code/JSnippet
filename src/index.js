@@ -13,6 +13,7 @@ import Container from "./useContext/Container";
 import ThunkContainer from "./redux-toolkit/ThunkContainer";
 import { Pagination } from "./pagination";
 import Registration from "./stepperForm/App";
+import Dashboard from "./timer/Dashboard";
 
 const appRouter = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/stepperForm",
         element: <Registration />,
+      },
+      {
+        path: "/timerDashboard",
+        element: <Dashboard />,
       },
     ],
   },
