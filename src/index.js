@@ -14,6 +14,7 @@ import ThunkContainer from "./redux-toolkit/ThunkContainer";
 import { Pagination } from "./pagination";
 import Registration from "./stepperForm/App";
 import Dashboard from "./timer/Dashboard";
+import DashboardCounter from "./counter/Dashboard";
 import { Home } from "./components/Home";
 
 const appRouter = createBrowserRouter([
@@ -64,6 +65,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/timerDashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/CounterDashboard",
+        element: <DashboardCounter />,
       },
     ],
   },
