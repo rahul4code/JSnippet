@@ -17,7 +17,7 @@ import Dashboard from "./timer/Dashboard";
 import DashboardCounter from "./counter/Dashboard";
 import { Home } from "./components/Home";
 
-const appRouter = createBrowserRouter([
+export const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
@@ -25,50 +25,62 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        name: "Home Page",
       },
       {
         path: "/useState",
         element: <Counter />,
+        name: "useState Play",
       },
       {
         path: "/useEffect",
         element: <ListRepo />,
+        name: "useEffect Play",
       },
       {
         path: "/useLayoutEffect",
         element: <Modal />,
+        name: "useLayoutEffect Play",
       },
       {
         path: "/useCallback",
         element: <Card />,
+        name: "useCallback Play",
       },
       {
         path: "/useMemo",
         element: <ThemeNumber />,
+        name: "useMemo Play",
       },
       {
         path: "/useContext",
         element: <Container />,
+        name: "useContext Play",
       },
       {
         path: "/redux-thunk",
         element: <ThunkContainer />,
+        name: "redux-thunk Play",
       },
       {
         path: "/pagination",
         element: <Pagination />,
+        name: "pagination Play",
       },
       {
         path: "/stepperForm",
         element: <Registration />,
+        name: "stepperForm Implementation",
       },
       {
         path: "/timerDashboard",
         element: <Dashboard />,
+        name: "timerDashboard Play",
       },
       {
         path: "/CounterDashboard",
         element: <DashboardCounter />,
+        name: "CounterDashboard Play",
       },
     ],
   },

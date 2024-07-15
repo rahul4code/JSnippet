@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`
@@ -12,7 +13,22 @@ const HeaderContainer = styled.div`
 `;
 
 const Header = () => {
-  return <HeaderContainer>Keep Practicing</HeaderContainer>;
+  return (
+    <>
+      <Link
+        to="/"
+        style={{
+          position: "absolute",
+          color: "gray",
+          padding: "10px",
+          fontSize: "10px",
+        }}
+      >
+        Back to Dashboard
+      </Link>
+      <HeaderContainer>Keep Practicing</HeaderContainer>
+    </>
+  );
 };
 
 export default Header;
