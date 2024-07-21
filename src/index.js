@@ -16,6 +16,7 @@ import Registration from "./stepperForm/App";
 import Dashboard from "./timer/Dashboard";
 import DashboardCounter from "./counter/Dashboard";
 import { Home } from "./components/Home";
+import { LastModified } from "./lastModified";
 
 export const appRouter = createBrowserRouter([
   {
@@ -81,6 +82,11 @@ export const appRouter = createBrowserRouter([
         path: "/CounterDashboard",
         element: <DashboardCounter />,
         name: "CounterDashboard Play",
+      },
+      {
+        path: "/LastModified",
+        element: <LastModified />,
+        name: "Last Modified State",
       },
     ],
   },
