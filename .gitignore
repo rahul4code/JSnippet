@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 node_modules
 .vscode# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+=======
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+>>>>>>> af4bfd5018a00afae05d169f6dad745c28c4e5ed
 
 # dependencies
 /node_modules
